@@ -4,7 +4,22 @@ public static class ArrayProblems
 {
     public static bool AreArraysEqual<T>(T[] xs, T[] ys)
     {
-        throw new NotImplementedException();
+        if (xs.Length != ys.Length)
+        {
+            return false;
+        }
+        else
+        {
+            for (var i = 0; i < xs.Length; i++)
+            {
+                if (!xs[i].Equals(ys[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 
     public static void Swap<T>(T[] xs, int a, int b)
@@ -31,7 +46,14 @@ public static class ArrayProblems
 
     public static T FirstElement<T>(T[] xs)
     {
-        throw new NotImplementedException();
+        if (xs.Length == 0)
+        {
+            throw new Exception("Array must have at least 1 element");
+        }
+        else
+        {
+            return xs[0];
+        }
     }
 
     public static T LastElement<T>(T[] xs)
@@ -51,7 +73,23 @@ public static class ArrayProblems
 
     public static int CountElement<T>(T[] xs, T element)
     { 
-        throw new NotImplementedException();
+        if (xs.Length == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            var count = 0;
+            foreach (var x in xs)
+            {
+                if (x.Equals(element))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
     }
 
     public static string ToCommaDelimitedString<T>(T[] xs)
@@ -63,7 +101,23 @@ public static class ArrayProblems
 
     public static int Count<T>(T[] xs, Func<T, bool> predicate)
     {
-        throw new NotImplementedException();
+        if (xs.Length == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            var count = 0;
+            foreach (var x in xs)
+            {
+                if (predicate(x))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
     }
 
     public static T Min<T>(T[] xs, Func<T, T, int> comparer)
