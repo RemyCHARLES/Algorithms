@@ -33,7 +33,7 @@ public static class ArrayProblems
 
     public static T FirstElement<T>(T[] xs)
     {
-        if (xs.Length == 0)
+        if (xs.Length < 0)
         {
             throw new Exception("Array must have at least 1 element");
         }
@@ -45,12 +45,26 @@ public static class ArrayProblems
 
     public static T LastElement<T>(T[] xs)
     {
-        throw new NotImplementedException();
+        if (xs.Length < 0)
+        {
+            throw new Exception("Array must have at least 1 element");
+        }
+        else
+        {
+            return xs[xs.Length - 1];
+        }
     }
 
     public static T MiddleElement<T>(T[] xs)
     {
-        throw new NotImplementedException();
+        if (xs.Length < 0)
+        {
+            throw new Exception("Array must have at least 1 element");
+        }
+        else
+        {
+            return xs[xs.Length / 2];
+        }
     }
 
     public static void Reverse<T>(T[] xs)
@@ -81,7 +95,20 @@ public static class ArrayProblems
 
     public static string ToCommaDelimitedString<T>(T[] xs)
     {
-        throw new NotImplementedException();
+        if (xs.Length == 0)
+        {
+            return "";
+        }
+        else
+        {
+            var result = "";
+            foreach (var x in xs)
+            {
+                result += x + ",";
+            }
+
+            return result.Substring(0, result.Length - 1);
+        }
     }
 
     // Bonus problems
@@ -109,16 +136,68 @@ public static class ArrayProblems
 
     public static T Min<T>(T[] xs, Func<T, T, int> comparer)
     {
-        throw new NotImplementedException();
+        if (xs.Length == 0)
+        {
+            throw new IndexOutOfRangeException("Array must have at least 1 element");
+        }
+        else
+        {
+            var min = xs[0];
+            foreach (var x in xs)
+            {
+                if (comparer(x, min) < 0)
+                {
+                    min = x;
+                }
+            }
+
+            return min;
+        }
     }
 
     public static T Max<T>(T[] xs, Func<T, T, int> comparer)
     {
-        throw new NotImplementedException();
+        if (xs.Length == 0)
+        {
+            throw new IndexOutOfRangeException("Array must have at least 1 element");
+        }
+        else
+        {
+            var max = xs[0];
+            foreach (var x in xs)
+            {
+                if (comparer(x, max) > 0)
+                {
+                    max = x;
+                }
+            }
+
+            return max;
+        }
     }
 
     public static bool HasDuplicates<T>(T[] xs)
     {
-        throw new NotImplementedException();
+        if (xs.Length == 0)
+        {
+            return false;
+        }
+        else
+        {
+            var set = new HashSet<T>();
+            foreach (var x in xs)
+            {
+                if (set.Contains(x))
+                {
+                    return true;
+                }
+                else
+                {
+                    set.Add(x);
+                }
+            }
+
+            return false;
+        }
     }
 }
