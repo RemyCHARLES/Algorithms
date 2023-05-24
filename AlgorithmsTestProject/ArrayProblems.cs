@@ -132,6 +132,6 @@ public static class ArrayProblems
 
     public static bool HasDuplicates<T>(T[] xs)
     {
-        throw new NotImplementedException();
+        
     }
 }
