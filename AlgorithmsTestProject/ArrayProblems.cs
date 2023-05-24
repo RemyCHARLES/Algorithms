@@ -4,6 +4,7 @@ public static class ArrayProblems
 {
     public static bool AreArraysEqual<T>(T[] xs, T[] ys)
     {
+  
         if (xs.Length != ys.Length)
         {
             return false;
@@ -19,13 +20,15 @@ public static class ArrayProblems
             }
 
             return true;
+         
         }
     }
 
     public static void Swap<T>(T[] xs, int a, int b)
     {
+        var tmp = xs[a];
         xs[a] = xs[b];
-        xs[b] = xs[a];
+        xs[b] = tmp;
     }
 
     public static T FirstElement<T>(T[] xs)
@@ -116,6 +119,6 @@ public static class ArrayProblems
 
     public static bool HasDuplicates<T>(T[] xs)
     {
-        
+        throw new NotImplementedException();
     }
 }
