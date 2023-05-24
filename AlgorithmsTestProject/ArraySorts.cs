@@ -4,7 +4,8 @@
     {
         public static void MySort1(int[] array)
         {
-            throw new NotImplementedException();
+            if (array.Length < 2)
+                return;
         }
 
         public static void MySort2(int[] array)

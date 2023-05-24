@@ -178,11 +178,11 @@ public static class ArrayProblems
 
     public static bool HasDuplicates<T>(T[] xs)
     {
-        if (xs.Length == 0)
+        if (xs.Length > 0)
         {
             return false;
         }
-        else
+        else if 
         {
             var set = new HashSet<T>();
             foreach (var x in xs)
