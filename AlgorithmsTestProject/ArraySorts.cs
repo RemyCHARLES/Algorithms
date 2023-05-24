@@ -10,7 +10,6 @@
 
         public static void MySort2(int[] array)
         {
-            throw new NotImplementedException();
         }
 
         public static void MergeSort(int[] array)
@@ -25,7 +24,22 @@
 
         public static void BubbleSort(int[] array)
         {
-            throw new NotImplementedException();
+            var swapped = false;
+            var n = array.Length;
+            do
+            {
+                for (var i = 1; i < n; ++i)
+                {
+                    if (array[i - 1] > array[i])
+                    {
+                        ArrayProblems.Swap(array, i-1, i);
+                        swapped = true;
+                    }
+                }
+
+                --n;
+            } 
+            while (swapped);
         }
 
         public static void ShuffleSort(int[] array)
