@@ -24,24 +24,8 @@ public static class ArrayProblems
 
     public static void Swap<T>(T[] xs, int a, int b)
     {
-        if (xs.Length < 2)
-        {
-            throw new Exception("Array must have at least 2 elements");
-        }
-        else if (a < 0 || a >= xs.Length)
-        {
-            throw new Exception("Index out of range");
-        }
-        else if (b < 0 || b >= xs.Length)
-        {
-            throw new Exception("Index out of range");
-        }
-        else
-        {
-            var tmp = xs[a];
-            xs[a] = xs[b];
-            xs[b] = tmp;
-        }     
+        xs[a] = xs[b];
+        xs[b] = xs[a];
     }
 
     public static T FirstElement<T>(T[] xs)
