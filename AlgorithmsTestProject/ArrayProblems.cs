@@ -182,7 +182,7 @@ public static class ArrayProblems
         {
             return false;
         }
-        else if 
+        else 
         {
             var set = new HashSet<T>();
             foreach (var x in xs)
