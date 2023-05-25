@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace AlgorithmsTestProject;
 
 public static class ArrayProblems
