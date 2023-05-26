@@ -159,23 +159,11 @@ public static class ArrayProblems
 
     public static T Max<T>(T[] xs, Func<T, T, int> comparer)
     {
-        if (xs.Length == 0)
-        {
-            throw new IndexOutOfRangeException("Array must have at least 1 element");
-        }
-        else
-        {
-            var max = xs[0];
-            foreach (var x in xs)
-            {
-                if (comparer(x, max) > 0)
-                {
-                    max = x;
-                }
-            }
-
-            return max;
-        }
+        var max = xs[0];
+        for (var i = 1; i < xs.Length; ++i)
+            if (comparer(xs[i], max) > 0)
+                max = xs[i];
+        return max;
     }
 
     public static bool HasDuplicates<T>(T[] xs)
